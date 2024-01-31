@@ -1,0 +1,251 @@
+1. To try it out, download the contents of dist (prog02.jar and
+   csc220.txt) to your desktop (or home directory).  Run
+
+	java -jar prog02.jar
+
+   or double click on it.
+
+   Look up Collin, Victor, and your own name (which won't be there!).
+
+   Add your name to the directory and look it up again.
+
+   Change the email associated with your name to your personal email
+   and look it up again.
+
+   Remove your name and look it up again.
+
+2. Go into doc in the browser and look at the documentation for the
+   PhoneDirectory interface and the UserInterface interface.
+
+3. For everything you did in #1, decide which methods in #2 it is
+   calling.  Discuss.
+
+4. In IntelliJ, create a new prog02 package in your csc220 project src
+   folder and download the source files from the src/prog02 web
+   directory into src/prog02 directory.  Reload.
+
+5. Download dist/csc220.txt into your project directory, usually
+   IdeaProjects/csc220.  Reload the project so it appears in IntelliJ.
+
+6. Implement processCommands in Main.  I did case 1, partially, in class:
+
+                          name = ui.getInfo("Enter the name ");
+                          number = pd.lookupEntry(name);
+                          ui.sendMessage(name + " has number " + number);
+
+   This should work fine if everything is normal.  Look up Victor.
+
+   What if the user tries to CANCEL when asked to enter the name?  Fix.
+
+   What if the user enters a blank name?  A blank name is NOT allowed.
+   (However, a blank phone number IS allowed.)  Fix.
+
+   What if the name isn't in the directory?  (Check the documentation
+   for lookupEntry.)
+
+   Do the other cases.  DO NOT CALL lookupEntry in any of the other
+   cases.
+
+   Have a TA check off your work when you are finished.
+
+
+HOMEWORK
+
+7. If the directory is changed, set changed=true.
+
+   If save is selected, set changed=false.
+
+   If the user selects exit, check if changed is true.  If so, ask the
+   user if they really want to exit without saving.  Using
+   getCommands, give the choices YES or NO.  Only exit if the user
+   selects YES.
+
+
+For the rest of your homework, you will implement SortedPD which
+stores the entries in order by name and uses binary search to find
+entries.
+
+8. Modify Main so it uses a SortedPD instead of an ArrayBasedPD.
+
+   Copy the methods add, find, found, and remove from ArrayBasedPD to the
+   SortedPD class, including their Javadoc comments.
+
+   Visit http://www.cs.miami.edu/home/vjm/csc220/prog02/dist/csc220.txt
+   and save this file to your workspace/csc220 directory.  Visit
+   csc220.txt in IntelliJ.  You should see
+
+Victor
+vjm@miami.edu
+Collin
+cdc104@miami.edu
+Brendan
+bdh54@miami.edu
+Syed
+sxs3394@miami.edu
+Chase
+amc992@miami.edu
+Jack
+jam771@miami.edu
+
+   Run Main, and tell the program to remove Collin and save.  Reload
+   the csc220.txt window in IntelliJ.  You should see
+
+Victor
+vjm@miami.edu
+Jack
+jam771@miami.edu
+Brendan
+bdh54@miami.edu
+Syed
+sxs3394@miami.edu
+Chase
+amc992@miami.edu
+
+   Why?  Because the way it removes Collin is by copying the last
+   entry (Jack) into the same location (and decrementing size to Jack
+   does not appear twice).
+
+
+9. Exit the program.  Restore csc220.txt by saving it from the browser
+   again and refreshing the window in IntelliJ.  Modify remove (in
+   SortedPD) so instead of copying entry [size-1] on top of entry
+   [index] it moves entries [index+1] to [size-1] each back one.  Now
+   when you run Main, remove Collin, and save, and refresh csc220.txt,
+   you should see
+
+Victor
+vjm@miami.edu
+Brendan
+bdh54@miami.edu
+Syed
+sxs3394@miami.edu
+Chase
+amc992@miami.edu
+Jack
+jam771@miami.edu
+
+
+   Do not modify add, find, or found until you have this working.
+
+
+10. add adds a new entry at [index] by first copying [index] to [size]
+   and then putting the new entry at [index].  Modify it so it moves
+   all the entries from [index] to [size-1] forward one index before
+   putting the new entry at [index].
+
+   Test add by (temporarily) setting index=0 at the top of add instead
+   of using the value it is given.  Run the program and save the
+   directory.  Look at csc220.txt.  Add a new entry (like your name
+   and email).  Save and look at csc220.txt.  Did the new entry end up
+   first in the file?
+
+   Now try setting index=size/2 and running the same test.  Does the
+   new entry end up in the right place?
+
+   Once you are sure add is working, remove the temporary line
+   index=size/2.
+
+
+11. We are going to be modifying find so it returns the index where a
+   new entry should go if it is not there.
+
+Brendan
+bdh54@miami.edu
+Chase
+amc992@miami.edu
+Collin
+cdc104@miami.edu
+Jack
+jam771@miami.edu
+Syed
+sxs3394@miami.edu
+Victor
+vjm@miami.edu
+
+  For example, find("Mary") will return 4 instead of 6 because Mary is
+  greater than Brendan, Chase, Collin, and Jack, but less than Syed
+  and Victor.
+
+  Modify found so it returns false if the index is valid but the name
+  is not at that index.  found(4, "Mary") should return false because
+  Mary is not in the directory yet.
+
+
+12. Now it is time to change find so it uses binary search.  Do we
+  need to sort the input file?  No!  Why not?  Object oriented
+  programming.  The loadData method in ArrayBasedPD will call
+  addOrChangeEntry which will call *your* add method to add each
+  entry.  addOrChangeEntry also calls *your* find method.  Your find
+  method will tell your addOrChangeEntry method where to put the
+  entries so it will be sorted.  If this makes your head explode,
+  don't worry about it.  Just trust the fact that if every method does
+  its job properly, the whole thing will work!
+
+  find needs two variables, low and high, initially 0 and size.  find
+  will return a value between low and high, inclusive.
+
+  The following is a true statement (NOT code you implement):
+
+    If i < low and [i] is a valid entry, its key is < name.
+
+    If j >= high and [j] is a valid entry, its key is >= name.
+
+  This is true at the start because this is NO valid i < 0 and NO
+  valid j >= size.
+
+  The following IS code you implement:
+
+  While low is less than high:
+
+    Calculate middle, halfway between low and high.
+
+    If the entry at [middle] is < name, then we know that entries [0]
+    to [middle] are all < name.  So we can safely set
+    low = middle + 1.
+
+    Else the entry at [middle] must be >= name, so we know the entries
+    from [middle] to [size-1] are >= name.  So we can set high = middle.
+
+  When the loop is done, low will equal high.  That means the entry
+  at [high] is is the lowest entry that is >= name.  (Why?)  If name is
+  in the directory, it has to be at index [high].  If the name is not
+  there, that is where we should put name.  So what should we return?
+  (Look at the documentation for find.)
+
+  Test your program.  Restore csc220.txt from the browser, run Main,
+  change my address to vjm@cs.miami.edu, save, and refresh the
+  csc220.txt window in IntelliJ.  You should see.
+
+Brendan
+bdh54@miami.edu
+Chase
+amc992@miami.edu
+Collin
+cdc104@miami.edu
+Jack
+jam771@miami.edu
+Syed
+sxs3394@miami.edu
+Victor
+vjm@cs.miami.edu
+
+
+13. I will put a folder named test into your shared OneDrive folder.
+
+    Link it into your project folder like you did src.
+
+    In IntelliJ, reload csc220.
+
+    Rightclick on the test folder, "Mark Directory as >",
+    select "Test Sources Root".
+
+    Open (double-click) test/prog02/SortedPDTest.
+
+    Hover over red junit (in import line) and ask IntelliJ to install the library.
+
+    Ditto the red jupiter.
+
+    Click the green triangle next to "class SortedPDTest".
+
+    Did you pass all the tests?
+
