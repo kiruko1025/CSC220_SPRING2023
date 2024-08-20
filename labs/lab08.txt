@@ -1,0 +1,64 @@
+1. Implement inOrder in TestSorter.java that returns false if the
+   array is not sorted.  Use compareTo on every pair of adjacent
+   items.
+
+
+2. Implement sameElements(array1, array2) using HashMap that returns false if the
+   two arrays have different elements.  For example,
+
+	array1 = { 3, 1, 4, 1, 5, 9, 2, 6 }
+	array2 = { 1, 1, 2, 2, 4, 5, 6, 9 }
+
+   The second array is sorted, but it has one two 2's and no 3 because
+   the sorting algorithm has a bug.  So sameElements(array1, array2)
+   would return false.
+
+   You will create a Map elementCounts from E to Integer.  For each
+   element e in the first array, map e to 1 if it is the first time
+   you see e or to 1 more than its current value.  So "1" will map to
+   2 since it appears twice and "2" will map to 1.
+
+   Then go through the second array except you decrement to count for
+   every e in the map.  If e is not a key or has count equal to zero,
+   then return false.
+
+   Since the number of elements are the same in each array, if the
+   number of each element is not the same, then there will be more of
+   some element in the second array than in the first.
+
+
+3. Finish implementing InsertionSort and test.
+
+   Run TestTestSorter.java to get your score for the lab.
+
+
+HOMEWORK
+
+4. Ditto HeapSort.  (Uncomment line in main.)
+
+
+5. Ditto QuickSort.
+
+
+6. Ditto MergeSort.
+
+
+7. Put the correct O() in each O() method.
+
+   Modify test to print out the running time and constant.
+
+   In tests, call test with powers of 10 from 10,000 to 10,000,000.
+
+   Are the constants constant?  (Sort of?)
+
+
+8. Write the merge method in ExternalSort.  Test using
+   TestExternalSort on number.txt and then make your own file with
+   different lengths to make sure you have it right.
+
+
+
+
+
+
+

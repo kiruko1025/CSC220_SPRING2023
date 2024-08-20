@@ -1,0 +1,57 @@
+1. Implement HashTable.put.  Output in step1.txt.
+
+2. Implement find.  Output in step2.txt.
+
+   Copy Jumble.java (whatever is your latest version) to prog10 and
+   change the package on top.  Modify it to use HashTable for its Map.
+   Load in words.txt and look up retupmuc and obezag.  Try to load
+   dict.txt instead.  Pretty slow, right?  (Kill it.)
+
+3. Implement rehash.  Output in step3.txt.
+
+   Now try to load dict.txt in Jumble.  It should be fast.  Look up
+   obezag.
+
+HOMEWORK
+
+4. Implement remove.  Output in step4.txt.
+
+5. Implement EntryIterator.  Output in step5.txt.
+
+6. Add a test of remove to Jumble.
+
+7. Comment out the test of remove.  Modify Jumble so that it keeps a
+   list of words that match each pattern: Map<String, List<String>>.
+   Test on "rdea".
+
+8. Add a second loop that prompts the user for a set of clue letters
+   and the length of the first pun word.  This loop should activate
+   when the user clicks cancel when asked for a word to unjumble.
+
+   a. Sort the letters (sortedLetters).
+
+   b. Declare key1index and initialize it to zero.  It is the index
+      of the current letter in key1.
+
+      For each key (key1) that has the right length:
+
+      i. Create an empty string key2.
+
+      ii. For each letter in sortedLetters,
+      	    if key1 is done (no more current letters),
+               add the letter to key2;
+            if it matches the current letter in key1,
+               make the next letter in key1 the current letter;
+            if it comes after alphabetically the current letter in key1,
+               stop looking at this key1.
+          Otherwise, add that letter to key2.
+
+   c. If all the letters in key1 were found in letters and if key2 is
+      a valid key, display the lists for key1 and key2.
+
+   See split.txt for an example of this algorithm in action.
+
+   Test on the Jumble examples.  Use dict instead of words.
+    
+   See jumble.txt.
+

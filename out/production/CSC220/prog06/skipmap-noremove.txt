@@ -1,0 +1,214 @@
+put(Vic, 0) = null
+{Vic=0}
+put(Vic, 0) = 0
+{Vic=0}
+get(Vic) = 0
+remove(Vic) = 0
+{Vic=0}
+get(Vic) = 0
+remove(Vic) = 0
+{Vic=0}
+put(Vic, 0) = 0
+{Vic=0}
+put(Ira, 1) = null
+{Ira={Ira=1}}
+{Ira=1, Vic=0}
+put(Ira, -1) = 1
+{Ira={Ira=-1}}
+{Ira=-1, Vic=0}
+get(Ira) = -1
+remove(Ira) = -1
+{Ira={Ira=-1}}
+{Ira=-1, Vic=0}
+get(Ira) = -1
+remove(Ira) = -1
+{Ira={Ira=-1}}
+{Ira=-1, Vic=0}
+put(Ira, 1) = -1
+{Ira={Ira=1}}
+{Ira=1, Vic=0}
+put(Sue, 2) = null
+{Ira={Ira=1}}
+{Ira=1, Sue=2, Vic=0}
+put(Sue, -2) = 2
+{Ira={Ira=1}}
+{Ira=1, Sue=-2, Vic=0}
+get(Sue) = -2
+remove(Sue) = -2
+{Ira={Ira=1}}
+{Ira=1, Sue=-2, Vic=0}
+get(Sue) = -2
+remove(Sue) = -2
+{Ira={Ira=1}}
+{Ira=1, Sue=-2, Vic=0}
+put(Sue, 2) = -2
+{Ira={Ira=1}}
+{Ira=1, Sue=2, Vic=0}
+put(Zoe, 3) = null
+{Zoe={Zoe={Zoe=3}}}
+{Ira={Ira=1}, Zoe={Zoe=3}}
+{Ira=1, Sue=2, Vic=0, Zoe=3}
+put(Zoe, -3) = 3
+{Zoe={Zoe={Zoe=-3}}}
+{Ira={Ira=1}, Zoe={Zoe=-3}}
+{Ira=1, Sue=2, Vic=0, Zoe=-3}
+get(Zoe) = -3
+remove(Zoe) = -3
+{Zoe={Zoe={Zoe=-3}}}
+{Ira={Ira=1}, Zoe={Zoe=-3}}
+{Ira=1, Sue=2, Vic=0, Zoe=-3}
+get(Zoe) = -3
+remove(Zoe) = -3
+{Zoe={Zoe={Zoe=-3}}}
+{Ira={Ira=1}, Zoe={Zoe=-3}}
+{Ira=1, Sue=2, Vic=0, Zoe=-3}
+put(Zoe, 3) = -3
+{Zoe={Zoe={Zoe=3}}}
+{Ira={Ira=1}, Zoe={Zoe=3}}
+{Ira=1, Sue=2, Vic=0, Zoe=3}
+put(Bob, 4) = null
+{Zoe={Zoe={Zoe=3}}}
+{Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Bob=4, Ira=1, Sue=2, Vic=0, Zoe=3}
+put(Bob, -4) = 4
+{Zoe={Zoe={Zoe=3}}}
+{Bob={Bob=-4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Bob=-4, Ira=1, Sue=2, Vic=0, Zoe=3}
+get(Bob) = -4
+remove(Bob) = -4
+{Zoe={Zoe={Zoe=3}}}
+{Bob={Bob=-4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Bob=-4, Ira=1, Sue=2, Vic=0, Zoe=3}
+get(Bob) = -4
+remove(Bob) = -4
+{Zoe={Zoe={Zoe=3}}}
+{Bob={Bob=-4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Bob=-4, Ira=1, Sue=2, Vic=0, Zoe=3}
+put(Bob, 4) = -4
+{Zoe={Zoe={Zoe=3}}}
+{Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Bob=4, Ira=1, Sue=2, Vic=0, Zoe=3}
+put(Ann, 5) = null
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Sue=2, Vic=0, Zoe=3}
+put(Ann, -5) = 5
+{Ann={Ann={Ann={Ann=-5}}}}
+{Ann={Ann={Ann=-5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=-5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=-5, Bob=4, Ira=1, Sue=2, Vic=0, Zoe=3}
+get(Ann) = -5
+remove(Ann) = -5
+{Ann={Ann={Ann={Ann=-5}}}}
+{Ann={Ann={Ann=-5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=-5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=-5, Bob=4, Ira=1, Sue=2, Vic=0, Zoe=3}
+get(Ann) = -5
+remove(Ann) = -5
+{Ann={Ann={Ann={Ann=-5}}}}
+{Ann={Ann={Ann=-5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=-5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=-5, Bob=4, Ira=1, Sue=2, Vic=0, Zoe=3}
+put(Ann, 5) = -5
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Sue=2, Vic=0, Zoe=3}
+put(Moe, 6) = null
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Moe=6, Sue=2, Vic=0, Zoe=3}
+put(Moe, -6) = 6
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Moe=-6, Sue=2, Vic=0, Zoe=3}
+get(Moe) = -6
+remove(Moe) = -6
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Moe=-6, Sue=2, Vic=0, Zoe=3}
+get(Moe) = -6
+remove(Moe) = -6
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Moe=-6, Sue=2, Vic=0, Zoe=3}
+put(Moe, 6) = -6
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Moe=6, Sue=2, Vic=0, Zoe=3}
+remove(Moe) = 6
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Moe=6, Sue=2, Vic=0, Zoe=3}
+put(Moe, 6) = 6
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Moe=6, Sue=2, Vic=0, Zoe=3}
+remove(Ann) = 5
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Moe=6, Sue=2, Vic=0, Zoe=3}
+put(Ann, 5) = 5
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Moe=6, Sue=2, Vic=0, Zoe=3}
+remove(Bob) = 4
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Moe=6, Sue=2, Vic=0, Zoe=3}
+put(Bob, 4) = 4
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Moe=6, Sue=2, Vic=0, Zoe=3}
+remove(Zoe) = 3
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Moe=6, Sue=2, Vic=0, Zoe=3}
+put(Zoe, 3) = 3
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Moe=6, Sue=2, Vic=0, Zoe=3}
+remove(Sue) = 2
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Moe=6, Sue=2, Vic=0, Zoe=3}
+put(Sue, 2) = 2
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Moe=6, Sue=2, Vic=0, Zoe=3}
+remove(Ira) = 1
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Moe=6, Sue=2, Vic=0, Zoe=3}
+put(Ira, 1) = 1
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Moe=6, Sue=2, Vic=0, Zoe=3}
+remove(Vic) = 0
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Moe=6, Sue=2, Vic=0, Zoe=3}
+put(Vic, 0) = 0
+{Ann={Ann={Ann={Ann=5}}}}
+{Ann={Ann={Ann=5}}, Zoe={Zoe={Zoe=3}}}
+{Ann={Ann=5}, Bob={Bob=4}, Ira={Ira=1}, Zoe={Zoe=3}}
+{Ann=5, Bob=4, Ira=1, Moe=6, Sue=2, Vic=0, Zoe=3}

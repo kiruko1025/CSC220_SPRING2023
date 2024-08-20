@@ -1,0 +1,403 @@
+0. As always, it is a requirement of the lab and homework that you
+   complete and test each step before going to the next one.  If you
+   have had any trouble at all with syncing, please also make sure you
+   work for that step appears on onedrive.miami.edu.  OneDrive saves
+   each version of your files, so if you mess up a step, you will be
+   able to go back.
+
+
+1. If you are syncing, you should already have prog04 in IntelliJ.
+   Run StackTester.  What happens if you peek or pop before pushing
+   anything?  Verify that pop returns strings in the opposite order that
+   you pushed them.
+
+
+2. Download ArrayStack.java from http://www.cs.miami.edu/home/vjm/prog04
+
+   Finish implementing ArrayStack.java.  Copy the missing methods from
+   StackInterface, including their javadoc and fill them in.
+
+   Modify the top of StackTester to use ArrayStack instead of Stack.
+   Test ArrayStack using StackTester.  It should do the right thing if
+   you pop or peek an empty stack.
+
+
+3. Since I set INITIAL_CAPACITY to 4, it will crash when you push the
+   fifth item.  If it working with less than five items, implement
+   reallocate() and modify push to use it.
+
+   What previous lesson used reallocate?  Study it and ask questions
+   about anything in it you do not understand.
+
+   To allocate a new array, copy the line in the constructor of
+   ArrayStack.  Modify if according to the previous lesson.
+
+
+3. If you think you have it right, here is how to do unit testing.  In
+   ArrayStack.java, rightclick on ArrayStack and select
+   Generate-->Test.  Check the box next to push.  This should create a
+   prog04 folder inside your test folder (that you created for prog02)
+   and a class ArrayStackTest with an empty method to test push.
+
+   Now download StackTest but put it in your test/prog04 folder.  Fill
+   in the empty push() method in ArrayStackTest with the following
+   line:
+
+	assert StackTest.test(new ArrayStack());
+
+   Now run the unit test (green arrow in ArrayStackTest).
+
+
+2. For the rest of the lab you will be creating a simple expression
+   calculator in Calculator.java.  Also download Tokenizer.java.
+
+   To do so you need two stacks: one to contain operators and the
+   other to contain operands (numbers).  When an operand is
+   encountered it is pushed onto the operand stack.  When an operator
+   is encountered, it is processed as described in parsing.txt.  When
+   an operator is popped off the operator stack, top two operands are
+   popped off the operand stack (or just one if the operator is unary
+   minus), the operation is performed, and the result is pushed back
+   onto the operand stack.
+
+   a. Implement numberStackToString using the hints provided.
+
+Enter arithmetic expression or cancel. 
+2+3*4
+numberStack:  2.0
+operatorStack: 
+numberStack:  2.0
+operatorStack: 
+numberStack:  2.0 3.0
+operatorStack: 
+numberStack:  2.0 3.0
+operatorStack: 
+numberStack:  2.0 3.0 4.0
+operatorStack: 
+numberStack:  2.0 3.0 4.0
+operatorStack: 
+numberStack:  2.0 3.0 4.0
+operatorStack: 
+2+3*4 = 4.0
+
+   b. Ditto operatorStackToString.
+
+Enter arithmetic expression or cancel. 
+2+3*4
+numberStack:  2.0
+operatorStack: 
+numberStack:  2.0
+operatorStack:  +
+numberStack:  2.0 3.0
+operatorStack:  +
+numberStack:  2.0 3.0
+operatorStack:  + *
+numberStack:  2.0 3.0 4.0
+operatorStack:  + *
+numberStack:  2.0 3.0 4.0
+operatorStack:  +
+numberStack:  2.0 3.0 4.0
+operatorStack: 
+2+3*4 = 4.0
+
+   c. Finish evaluateOperator by adding cases for -,*,/, and ^.  Use
+      Math.pow for ^.
+
+   d. Implement evaluateTopOperator.  It should pop an operator off
+      the operator stack and two number off the number stack.  Then
+      it should call evaluateOperator and push the result on the
+      number stack.  Call displayStacks() before you return.
+
+Enter arithmetic expression or cancel. 
+4-2
+numberStack:  4.0
+operatorStack: 
+numberStack:  4.0
+operatorStack:  -
+numberStack:  4.0 2.0
+operatorStack:  -
+numberStack:  -2.0
+operatorStack: 
+4-2 = -2.0
+
+   e. Did you get -2 instead of 2?  If so, then fix
+      evaluateTopOperator!  Remember, things come out of a stack in
+      the reverse order that they go in.
+
+Enter arithmetic expression or cancel. 
+4-2
+numberStack:  4.0
+operatorStack: 
+numberStack:  4.0
+operatorStack:  -
+numberStack:  4.0 2.0
+operatorStack:  -
+numberStack:  2.0
+operatorStack: 
+4-2 = 2.0
+
+   f. Try 2*3+4.  You should bet 14 instead of 10 because it doesn't
+      understand that * has higher "precedence" than +.  You will fix
+      this for the homework.
+
+      Here, I show where it is in the expression for each step by
+      writing out the expression and putting an arrow below what is
+      being read.  So
+
+2*3+4
+^
+      means we are reading the 2.
+
+
+2*3+4
+^
+numberStack:  2.0
+operatorStack: 
+
+2*3+4
+ ^
+numberStack:  2.0
+operatorStack:  *
+
+2*3+4
+  ^
+numberStack:  2.0 3.0
+operatorStack:  *
+
+2*3+4
+   ^
+numberStack:  2.0 3.0
+operatorStack:  * +
+
+2*3+4
+    ^
+numberStack:  2.0 3.0 4.0
+operatorStack:  * +
+
+2*3+4
+     ^
+numberStack:  2.0 7.0
+operatorStack:  *
+
+2*3+4
+     ^
+numberStack:  14.0
+operatorStack: 
+2*3+4 = 14.0
+
+
+HOMEWORK
+
+3. Implement LinkedStack.java.
+
+   push is already implemented, but try to do it yourself using push.pdf.
+
+   Implement pop by reading push.pdf from RIGHT to LEFT!
+
+   Modify StackTester to test LinkedStack.  Then check yourself using
+   unit testing (Generate --> Test etc.).
+
+
+4. Ditto ListStack.  Read the documentation (Google it!) for the List
+   interface.
+
+
+5. Modify Calculator so it understands operator precedence:
+
+  static final String OPERATORS = "()+-*/u^";
+  static final int[] PRECEDENCES = { -1, -1, 1, 1, 2, 2, 3, 4 };
+
+   OPERATORS has all the value operators.
+   PRECEDENCES has their corresponding precedences.
+
+   a. Implement precedence(op):
+
+  // Return the precedence value of op.  For example,
+  // precedence('/') returns 2.
+  int precedence (char op)
+
+   b. Modify processOperator to use the following logic:
+
+  While the top element (if there is one) of the operator stack has
+  precedence >= than the precedence of op,
+    evaluate it (call evaluateTopOperator()),
+
+  then push op on the stack.
+
+2-3-4*2
+^
+numberStack: 2
+operatorStack:   
+
+2-3-4*2
+ ^
+numberStack: 2 
+operatorStack: -  
+
+2-3-4*2
+  ^
+numberStack: 2 3
+operatorStack: -
+
+2-3-4*2
+   ^
+numberStack: -1
+operatorStack:   
+
+2-3-4*2
+   ^
+numberStack: -1
+operatorStack: -  
+
+2-3-4*2
+    ^
+numberStack: -1 4
+operatorStack: -  
+
+2-3-4*2
+     ^
+numberStack: -1 4
+operatorStack: - *
+
+2-3-4*2
+      ^
+numberStack: -1 4 2
+operatorStack: - *
+
+2-3-4*2
+       ^
+numberStack: -1 8
+operatorStack: -  
+
+2-3-4*2
+       ^
+numberStack: -9
+operatorStack:   
+
+
+6. Modify your program so it works with parentheses.  You should only
+   have to modify processOperator.
+
+processOperator('('):
+
+	push it.  That's it!
+
+processOperator(')'):
+
+	while the top of the stack is not '('
+	  evaluate the top operator
+	pop the '('.
+
+(1-2)*3
+^
+numberStack:
+operatorStack: (
+
+(1-2)*3
+ ^
+numberStack: 1
+operatorStack: (
+
+(1-2)*3
+  ^
+numberStack: 1
+operatorStack: ( -
+
+(1-2)*3
+   ^
+numberStack: 1 2
+operatorStack: ( -
+
+(1-2)*3
+    ^
+numberStack: -1
+operatorStack: (
+
+(1-2)*3
+    ^
+numberStack: -1
+operatorStack:
+
+(1-2)*3
+     ^
+numberStack: -1
+operatorStack: *
+
+(1-2)*3
+      ^
+numberStack: -1 3
+operatorStack: *
+
+(1-2)*3
+       ^
+numberStack: -3
+operatorStack:
+
+Try (1-(2-3))*3 and (6+2)*(1+3).
+
+
+7. Modify your program so it understands unary minus: -1 - -3 = 2.
+   A '-' is a unary minus if it comes first -2*2 or if it comes after
+   an operator 2*-2.
+
+   a. Add a boolean variable pushedOp to the Calculator class to keep
+   track if the last push was an operator or a number.  Set pushdOp to
+   true after each push onto the operatorStack and false after each
+   push on the numberStack.
+
+   b. At the top of doOperator, if op is '-' and either
+       both stacks are empty or
+       the last push was an operator
+      set op to 'u' instead.
+
+   b. To process 'u' in processOperator, just push it on the operator
+   stack.  That's it!
+
+   c. To evaluate 'u' in evaluateTopOperator, if the top operator is
+   'u', pop the number stack JUST ONCE, negate the number (-a), and
+   push it again.
+
+   Test.
+
+
+-2--3
+^
+numberStack: 
+operatorStack: u
+
+-2--3
+  ^
+numberStack: -2
+operatorStack: 
+
+-2--3
+  ^
+numberStack: -2
+operatorStack: -
+
+-2--3
+   ^
+numberStack: -2
+operatorStack: - u
+
+-2--3
+    ^
+numberStack: -2 3
+operatorStack: - u
+
+-2--3
+     ^
+numberStack: -2 -3
+operatorStack: -
+
+-2--3
+     ^
+numberStack: 1
+operatorStack: 
+
+
+   Make sure that -2^-4 = -0.0625.
+
+
+
+

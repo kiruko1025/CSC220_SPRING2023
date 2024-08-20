@@ -1,0 +1,38 @@
+1. ArrayMap is a "proper" version of SortedPD.  It implements
+   Map<String, String>.  Finishing implementing ArrayMap.find.
+   It should run in O(log n) time for n = size.
+
+   Implement found.
+
+2. Finish implementing ArrayMap.add.  Run it to test.  (Remove won't
+   work.)  Correct output in arraymap-add.txt.
+
+3. Finish implementing ArrayMap.remove.  Run it to test.  Correct
+   output in arraymap-remove.txt.
+
+4. Look at FileMap.containsKey.  Ask questions.  Implement get.
+   Only two lines are slightly different.
+
+5. Finish implementing FileMap.put.  Correct output in
+   filemap-put.txt.
+
+6. Finish implementing BTree.put.  Correct output in btree-put.txt.
+
+
+HOMEWORK
+
+7. Copy Jumble.java to prog09.  Change package to prog09 on the first
+   line if it doesn't happen automatically.  Test words.txt and
+   dict.txt with BTree.
+
+8. Finish implementing FileMap.join.  Make sure you understand
+   FileMap.split first.
+
+9. Finish implementing FileMap.remove.  Correct output in
+   filemap-remove.txt.
+
+10. Finish implementing BTree.remove.  Correct output in
+   btree-remove.txt.
+
+11. Add a test of remove to Jumble.java.
+
